@@ -4,7 +4,7 @@ site_author: Edith Coppelia
 
 theme: readthedocs
 
-repo_url: https://github.com/coppelia517/pytest-yorha
+repo_url: https://github.com/coppelia517/yorha
 
 pages:
 - Home: index.md

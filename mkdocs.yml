@@ -1,0 +1,10 @@
+site_name: pytest-yorha
+site_description: A simple plugin to use with pytest
+site_author: Edith Coppelia
+
+theme: readthedocs
+
+repo_url: https://github.com/coppelia517/pytest-yorha
+
+pages:
+- Home: index.md

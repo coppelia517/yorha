@@ -1,51 +1,55 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
-import codecs
-from setuptools import setup
+from setuptools import setup, find_packages
 
+with open('README.md') as readme_file:
+    readme = readme_file.read()
 
-def read(fname):
-    file_path = os.path.join(os.path.dirname(__file__), fname)
-    return codecs.open(file_path, encoding='utf-8').read()
+with open('CHANGELOG.md') as history_file:
+    history = history_file.read()
+
+with open('requirements.in') as requirements_file:
+    requirements = requirements_file.read().splitlines()
+
+with open('requirements_dev.in') as requirements_dev_file:
+    development_requirements = requirements_dev_file.read().splitlines()
+
+test_requirements = ['pytest']
 
 
 setup(
-    name='pytest-yorha',
+    name='yorha',
     version='0.1.0',
     author='Edith Coppelia',
     author_email='dev.coppelia@gmail.com',
-    maintainer='Edith Coppelia',
-    maintainer_email='dev.coppelia@gmail.com',
     license='MIT',
-    url='https://github.com/coppelia517/pytest-yorha',
+    url='https://github.com/coppelia517/yorha',
     description='A simple plugin to use with pytest',
-    long_description=read('README.rst'),
-    py_modules=['pytest_yorha'],
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
-    install_requires=['pytest>=3.5.0'],
+    long_description=readme + '\n\n' + history,
     classifiers=[
-        'Development Status :: 4 - Beta',
-        'Framework :: Pytest',
+        'Development Status :: Pre-Alpha',
         'Intended Audience :: Developers',
+        'Natural Language :: English',
+        'Framework :: Pytest',
         'Topic :: Software Development :: Testing',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
-        'Operating System :: OS Independent',
         'License :: OSI Approved :: MIT License',
     ],
+    packages=['yorha'],
+    include_package_data=True,
+    install_requires=requirements,
+    zip_safe=False,
     entry_points={
         'pytest11': [
-            'yorha = pytest_yorha',
+            'yorha = yorha.plugins',
         ],
+    },
+    test_suite='tests',
+    tests_require=test_requirements,
+    extras_require={
+        'dev': development_requirements,
     },
 )

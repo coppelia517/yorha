@@ -1,3 +1,27 @@
 {
-    "python.pythonPath": ".env\\Scripts\\python.exe"
+    "editor.formatOnSave": true,
+    "editor.renderWhitespace": "all",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.mypyArgs": [
+        "--strict",
+        "--ignore-missing-imports",
+        "--follow-imports=silent",
+        "--show-column-numbers"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--max-line-length=120"
+    ],
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": [
+        "--style",
+        "{based_on_style: pep8, indent_width: 4, column_limit: 120}"
+    ],
+    "python.pythonPath": ".env\\Scripts\\python.exe",
 }
